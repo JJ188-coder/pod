@@ -1,0 +1,13 @@
+{
+  "name": "pod-pricing",
+  "version": "0.1.0",
+  "description": "POD 定价助手：按成本、平台费、运费和市场价带反解建议售价，起量阶段默认每单 1–3 元；可把价格写回 listing-spec.json。",
+  "description_i18n": {
+    "en": "POD pricing assistant: back-solves a listing price from cost, platform fees, shipping and a market price band, defaulting to a 1–3 CNY contribution for volume launch; patches listing-spec.json.",
+    "zh-CN": "POD 定价助手：按成本、平台费、运费和市场价带反解建议售价，起量阶段默认每单 1–3 元；可把价格写回 listing-spec.json。"
+  },
+  "author": { "name": "POD" },
+  "license": "MIT",
+  "keywords": ["pod", "pricing", "tiktok", "mexico", "listing", "cost", "margin"],
+  "skills": "./skills"
+}

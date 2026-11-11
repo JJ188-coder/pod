@@ -1,0 +1,22 @@
+{
+  "name": "tiktok-tshirt",
+  "version": "0.1.0",
+  "description": "TikTok Shop T恤营销包：并发出主图、本地排版西语竖版详情页、生成上传选图与门禁回执；只产本地文件，不写平台。",
+  "description_i18n": {
+    "en": "TikTok Shop T-shirt pack: concurrent hero/lifestyle shots, a locally typeset Spanish vertical detail page, upload selection and gates. Produces local files only; never writes to the platform.",
+    "zh-CN": "TikTok Shop T恤营销包：并发出主图、本地排版西语竖版详情页、生成上传选图与门禁回执；只产本地文件，不写平台。"
+  },
+  "author": {
+    "name": "kingmaozi"
+  },
+  "license": "MIT",
+  "keywords": [
+    "tiktok",
+    "pod",
+    "tshirt",
+    "marketing",
+    "detail-page",
+    "mcp"
+  ],
+  "mcpServers": "./.mcp.json"
+}

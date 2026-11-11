@@ -1,0 +1,23 @@
+{
+  "name": "minimax-video-studio",
+  "version": "0.2.0",
+  "description": "Generate MiniMax H3 videos through the Grsai gateway: prompt planning, batch queue, background generation, resume, download and a local read-only progress page.",
+  "description_i18n": {
+    "zh-CN": "通过 Grsai 生成 MiniMax H3 视频：提示词规划、批量排队、后台生成、断点恢复、自动下载与本机只读进度页。"
+  },
+  "author": {
+    "name": "Local"
+  },
+  "license": "MIT",
+  "skills": "skills",
+  "mcpServers": {
+    "minimax-video": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${ZCODE_PLUGIN_ROOT}/dist/server.bundle.mjs"
+      ],
+      "cwd": "${ZCODE_PROJECT_DIR}"
+    }
+  }
+}

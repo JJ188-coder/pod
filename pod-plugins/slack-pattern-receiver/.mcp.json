@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "slack-pattern-receiver": {
+      "type": "stdio",
+      "command": "sh",
+      "args": ["${ZCODE_PLUGIN_ROOT}/mcp/launch.sh"],
+      "timeoutMs": 900000
+    }
+  }
+}

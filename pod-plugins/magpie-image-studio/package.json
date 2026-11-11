@@ -1,0 +1,21 @@
+{
+  "name": "magpie-image-studio",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "Generate images with the local Magpie image MCP endpoint: prompt planning, one-shot generation, saved files and resumable task records.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && esbuild src/server.ts --bundle --platform=node --format=esm --target=node22 --external:node:sqlite --outfile=dist/server.bundle.mjs",
+    "test": "node scripts/test-offline.mjs",
+    "test:offline": "node scripts/test-offline.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "esbuild": "0.25.9",
+    "typescript": "5.9.2"
+  }
+}

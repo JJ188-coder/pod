@@ -1,0 +1,12 @@
+{
+  "name": "pod-pipeline",
+  "version": "0.1.0",
+  "description": "POD 素材段与业务口径：素材冻结、样图改背景/换视角、成本利润、供货额度卡、批次索引与图床部署。",
+  "description_i18n": {
+    "en": "POD material-stage toolkit: freeze packs, sample-image variants, contribution costing, supply-quota cards, batch index and image-host deploy.",
+    "zh-CN": "POD 素材段与业务口径：素材冻结、样图改背景/换视角、成本利润、供货额度卡、批次索引与图床部署。"
+  },
+  "author": { "name": "POD" },
+  "license": "MIT",
+  "skills": "./skills"
+}

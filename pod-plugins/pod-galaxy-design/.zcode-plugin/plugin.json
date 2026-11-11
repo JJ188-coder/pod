@@ -1,0 +1,10 @@
+{
+  "name": "pod-galaxy-design",
+  "version": "0.2.0",
+  "description": "POD 银河设计岗位：登录检测、款号去重、图案上传与保存重开读回，产出可校验的银河交接件",
+  "author": {
+    "name": "POD"
+  },
+  "skills": "./skills",
+  "license": "MIT"
+}

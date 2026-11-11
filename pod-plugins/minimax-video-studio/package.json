@@ -1,0 +1,21 @@
+{
+  "name": "minimax-video-studio",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "MiniMax H3 video generation plugin for ZCode: prepare, queue, run, resume and download.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && esbuild src/mcp/server.ts --bundle --platform=node --format=esm --target=node24 --outfile=dist/server.bundle.mjs",
+    "test": "npm run build && node --test --test-concurrency=1 tests/*.test.mjs",
+    "doctor": "node dist/cli.js doctor"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "esbuild": "0.25.9",
+    "typescript": "5.9.2"
+  }
+}

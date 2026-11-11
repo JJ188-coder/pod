@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "tiktok-tshirt": {
+      "type": "stdio",
+      "command": "sh",
+      "args": ["${ZCODE_PLUGIN_ROOT}/mcp/launch.sh"],
+      "enabled": true,
+      "timeoutMs": 900000
+    }
+  }
+}

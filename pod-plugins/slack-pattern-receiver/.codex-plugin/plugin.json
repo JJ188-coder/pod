@@ -1,0 +1,25 @@
+{
+  "name": "slack-pattern-receiver",
+  "version": "0.1.0",
+  "description": "从已登录 Slack 页面按固定标签接收单张 PNG 图案，绑定原消息并核验像素、透明度、SHA-256；不合格直接 blocked，不进入银河或上架。",
+  "author": {
+    "name": "kingmaozi"
+  },
+  "mcpServers": "./.mcp.json",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Slack 图案接收器",
+    "shortDescription": "固定 Slack 标签、同源取原件、4K/透明度/SHA 验收",
+    "developerName": "kingmaozi",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "从指定 Slack 私信接收 JESUS198-F.png，核 4K、透明度和 SHA，不合格就停",
+      "先只读发现这个 Slack 图案的原消息和原始文件地址"
+    ]
+  },
+  "license": "MIT"
+}

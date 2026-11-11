@@ -1,0 +1,23 @@
+{
+  "name": "echotik-top100-sku",
+  "version": "0.1.0",
+  "description": "EchoTik 墨西哥男士T恤周榜 Top100 全 SKU 导出：榜单 5 页、商品页 SSR 解析颜色/尺码/价格/库存，产出 CSV 与 JSON；只读、断点续跑、按日额度记账。",
+  "description_i18n": {
+    "en": "EchoTik Mexico men's T-shirt weekly Top100 full-SKU exporter: 5-page leaderboard plus SSR product-page parsing for color/size/price/stock, with CSV/JSON output, resume and daily quota ledger.",
+    "zh-CN": "EchoTik 墨西哥男士T恤周榜 Top100 全 SKU 导出：榜单 5 页、商品页 SSR 解析颜色/尺码/价格/库存，产出 CSV 与 JSON；只读、断点续跑、按日额度记账。"
+  },
+  "author": {
+    "name": "kingmaozi"
+  },
+  "license": "MIT",
+  "keywords": [
+    "echotik",
+    "tiktok",
+    "pod",
+    "sku",
+    "mexico",
+    "tshirt",
+    "mcp"
+  ],
+  "mcpServers": "./.mcp.json"
+}
