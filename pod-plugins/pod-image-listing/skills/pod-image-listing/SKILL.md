@@ -53,6 +53,8 @@ description: TikTok Shop MX 多品类上架岗位。用户说上架、批量导�
 
 加载`pod-pipeline`并按其`references/product-media-standard.md`准备素材清单。每款最终图片平铺；工厂图仅作参考，不直接填新商品的相册或SKU图。每个本次在售颜色至少一个已核验的生成主图，按`colors[].en`精确对应`colors[].image`；同色各尺码可复用，不能给所有颜色复制第一张。超过8色补颜色主图，相册仍精选8展示＋1尺码，其余主图供SKU。
 
+手机壳另有一条：厂家只有材质级实拍（每材质 4–8 张，且常带示例印花），颜色图必须由**该材质的一张干净实拍改色生成**，只改颜色、不改结构/孔位/镜头平台。禁止把厂家多张示例图按行或按顺序硬套成颜色图；颜色名与生成图不符该色阻塞，不拿首图顶替。
+
 - spec每款附`media.mode: generated`、`media.assets`（同款标识/绝对文件/实际SHA/来源回执/角色/颜色/验收）、`media.video`（实际文件SHA、model_native、语音/口型/外观验收）。字段完整例子见上述标准；不能虚填true过检。
 - 先运行纯本地`node "$POD_REPO/tools/pod/listing/media-check.mjs" /absolute/spec.json`。它不访问店铺、不部署；`publish.mjs`的plan/build/precheck/pagecheck/import会在浏览器或图床操作前自动跑同一检查。verify历史读回不受影响。
 - 检查图片数量、>500字符、每色主图、来源和哈希、视频实际9:16/音轨/时长及验收记录；它不自动识别实际颜色或评估口型，逐图视觉对照/连续音画检查仍必须做。

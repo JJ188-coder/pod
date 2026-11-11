@@ -42,7 +42,7 @@ description: 当商品图片与实物不一致、需要锁定同款同色参考�
 }
 ```
 
-手机壳必须提供真实 `model`，且每张 `product` 参考记录的 `model` 精确匹配；不默认或硬编码 iPhone 型号。`changes` 仅允许 `background`、`lighting`、`pose`、`camera`。`scene`/`composition` 是必要时使用的场景与构图说明；提示词会明确约束其不得重定义商品，但不是语义安全过滤器。商品引用按 `product, artwork, person, scene` 的角色排序，同角色保持输入顺序；锁内 refs 与 `reference_images` 一一同序。
+手机壳必须提供真实 `model`，且每张 `product` 参考记录的 `model` 精确匹配；不默认或硬编码 iPhone 型号。`changes` 允许 `background`、`lighting`、`pose`、`camera`；**手机壳另允许 `color`**：同一材质只需一张最干净的厂家实拍作结构参考，按厂家在售颜色逐色改色生成，改色只动颜色，不改结构、孔位、镜头平台和机型。禁止把厂家 4–8 张材质示例图按顺序硬套成“颜色图”——那既不是同色参考，也不是本店商品图。改色结果逐色对照色名验收；色名与图不符的阻塞该色，不回退首图。`scene`/`composition` 是必要时使用的场景与构图说明；提示词会明确约束其不得重定义商品，但不是语义安全过滤器。商品引用按 `product, artwork, person, scene` 的角色排序，同角色保持输入顺序；锁内 refs 与 `reference_images` 一一同序。
 
 ```bash
 node /absolute/plugin-root/scripts/product-fidelity.mjs compile --spec /absolute/spec.json
