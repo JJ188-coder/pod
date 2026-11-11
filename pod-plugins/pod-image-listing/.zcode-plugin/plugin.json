@@ -1,0 +1,9 @@
+{
+  "name": "pod-image-listing",
+  "version": "0.1.0",
+  "description": "POD 上架岗位：把已冻结的商品素材变成 TikTok Shop MX 官方批量表并导入，图片走自有域名 img.bri-king.com 的公开直链、不经媒体中心；默认只做逐张校验与页面预检，真实导入需显式 --apply。",
+  "author": {
+    "name": "POD"
+  },
+  "skills": "./skills"
+}

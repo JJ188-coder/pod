@@ -1,0 +1,80 @@
+{
+  "name": "pod-toolkit",
+  "interface": {
+    "displayName": "POD 工具包"
+  },
+  "plugins": [
+    {
+      "name": "pod-image-listing",
+      "source": "./pod-image-listing",
+      "version": "0.1.0",
+      "description": "POD 上架岗位：把已冻结的商品素材变成 TikTok Shop MX 官方批量表并导入，图片走自有域名的公开直链；默认只做逐张校验与页面预检，真实导入需显式 --apply。",
+      "displayName": "POD 批量上架",
+      "category": "productivity"
+    },
+    {
+      "name": "pod-galaxy-design",
+      "source": "./pod-galaxy-design",
+      "version": "0.2.0",
+      "description": "POD 银河设计岗位：登录检测、款号去重、图案上传与保存重开读回，产出可校验的银河交接件。",
+      "displayName": "POD 银河设计",
+      "category": "productivity"
+    },
+    {
+      "name": "tiktok-tshirt",
+      "source": "./tiktok-tshirt",
+      "version": "0.1.0",
+      "description": "TikTok Shop T恤营销包：并发出主图、本地排版西语竖版详情页、生成上传选图与门禁回执；只产本地文件，不写平台。",
+      "displayName": "TikTok T恤营销包",
+      "category": "creative"
+    },
+    {
+      "name": "slack-pattern-receiver",
+      "source": "./slack-pattern-receiver",
+      "version": "0.1.0",
+      "description": "从已登录 Slack 页面按固定标签接收单张 PNG 图案，绑定原消息并核验像素、透明度、SHA-256；不合格直接 blocked。",
+      "displayName": "Slack 图案接收器",
+      "category": "productivity"
+    },
+    {
+      "name": "echotik-top100-sku",
+      "source": "./echotik-top100-sku",
+      "version": "0.1.0",
+      "description": "EchoTik 墨西哥男士T恤周榜 Top100 全 SKU 导出：榜单 5 页、商品页 SSR 解析颜色/尺码/价格/库存，产出 CSV 与 JSON；只读、断点续跑、按日额度记账。",
+      "displayName": "EchoTik Top100 SKU",
+      "category": "productivity"
+    },
+    {
+      "name": "magpie-image-studio",
+      "source": "./magpie-image-studio",
+      "version": "0.3.0",
+      "description": "生图工作室：image2异步提交与可恢复任务、禁止未知结果重发；新增商品保真参考锁定与待验收流程，Magpie保留为备用通道。",
+      "displayName": "生图工作室（image2 优先）",
+      "category": "creative"
+    },
+    {
+      "name": "minimax-video-studio",
+      "source": "./minimax-video-studio",
+      "version": "0.2.0",
+      "description": "通过 Grsai 生成 MiniMax H3 视频：提示词规划、批量排队、后台生成、断点恢复、自动下载与本机只读进度页。",
+      "displayName": "MiniMax 视频工作室",
+      "category": "creative"
+    },
+    {
+      "name": "pod-pipeline",
+      "source": "./pod-pipeline",
+      "version": "0.1.0",
+      "description": "POD 素材段与业务口径：素材冻结、样图改背景/换视角、成本利润、供货额度卡、批次索引与图床部署。",
+      "displayName": "POD 素材管道",
+      "category": "productivity"
+    },
+    {
+      "name": "pod-pricing",
+      "source": "./pod-pricing",
+      "version": "0.1.0",
+      "description": "POD 定价助手：按成本、平台费、运费和市场价带反解售价，起量阶段默认每单 1–3 元；可把价格写回 listing-spec.json。",
+      "displayName": "POD 定价助手",
+      "category": "productivity"
+    }
+  ]
+}

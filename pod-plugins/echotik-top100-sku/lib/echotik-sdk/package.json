@@ -1,0 +1,14 @@
+{
+  "name": "echotik-browser-session-sdk",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "description": "受限的 EchoTik 已登录浏览器会话 SDK",
+  "engines": {
+    "node": ">=24.19.0"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check index.mjs && node --check cli.mjs && node --check lib/bridge.mjs && node --check lib/cdp.mjs"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "magpie-image-studio",
+  "version": "0.3.0",
+  "description": "Image studio with resumable image2 jobs, explicit product-reference fidelity checks, and a local Magpie fallback.",
+  "description_i18n": {
+    "zh-CN": "生图工作室：image2异步任务与安全续跑，商品实物/图案/人物参考分工锁定；生成后待验收，Magpie保留为备用。"
+  },
+  "author": {
+    "name": "Local"
+  },
+  "license": "MIT",
+  "skills": "skills",
+  "mcpServers": {
+    "magpie-image": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "${ZCODE_PLUGIN_ROOT}/dist/server.bundle.mjs"
+      ],
+      "cwd": "${ZCODE_PROJECT_DIR}"
+    },
+    "image2": {
+      "type": "stdio",
+      "command": "python3",
+      "args": [
+        "-I",
+        "-B",
+        "${ZCODE_PLUGIN_ROOT}/scripts/image2_mcp.py"
+      ],
+      "cwd": "${ZCODE_PLUGIN_ROOT}",
+      "enabled": true,
+      "timeoutMs": 900000
+    }
+  }
+}

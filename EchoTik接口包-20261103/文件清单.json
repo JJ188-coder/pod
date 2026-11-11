@@ -1,0 +1,184 @@
+{
+ "package": "EchoTik接口包-20261103",
+ "version": "1.0.0",
+ "generated_at": "2026-11-03",
+ "source": "echotik.live 已购会员只读接口（同源页面会话）",
+ "endpoints": [
+  "/api/v1/data/products/leaderboard/top-sold",
+  "/api/v1/data/products/product-category"
+ ],
+ "checks": {
+  "check_mjs": "PASS",
+  "sdk_tests": "18 pass / 0 fail",
+  "samples": 9,
+  "secrets_scan": "clean"
+ },
+ "count": 33,
+ "files": [
+  {
+   "path": "01-接口契约.md",
+   "bytes": 5207,
+   "sha256": "5e3b2d725fe47d9f57438bfdd99aedcba70850a99c37f510e983dddeaa325425"
+  },
+  {
+   "path": "02-用法.md",
+   "bytes": 3862,
+   "sha256": "7e71f6a3a8cabf5595eac7f7793b4086c26ca96e05abeed09e88e787b4fb225c"
+  },
+  {
+   "path": "03-边界与合规.md",
+   "bytes": 2855,
+   "sha256": "6b4e5f6c80de719af2c2b44484366a4c00901d750bc816dda08f1cd34ef6774d"
+  },
+  {
+   "path": "README.md",
+   "bytes": 2316,
+   "sha256": "1823c1e7a502ba59de6b1ba84fcd36ce5a9c9881dd3a54ad11fb64f9556f35b3"
+  },
+  {
+   "path": "VERSION",
+   "bytes": 6,
+   "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+  },
+  {
+   "path": "check.mjs",
+   "bytes": 4568,
+   "sha256": "871c07e095a04668b9298170d8fd91fd95d9199ef1dfdc07528db596f2200ef7"
+  },
+  {
+   "path": "client.mjs",
+   "bytes": 4466,
+   "sha256": "93c3c8c1fa64fcedfbe1d755e3f8fd82652fa05aebbeabe4d3912af4556dd360"
+  },
+  {
+   "path": "依据/2026-10-22_网页接口-EchoTik-report.md",
+   "bytes": 7838,
+   "sha256": "bf5fdec309b2b75342ad3ceef9a17d8713e4c286edabe80cac7059bb6b7923d0"
+  },
+  {
+   "path": "依据/授权范围.md",
+   "bytes": 1738,
+   "sha256": "77222bbda55f9a2f7d2e523450ac54bb9906da91247ab0db55cb23f25ca432db"
+  },
+  {
+   "path": "samples/echotik-basic-pricing-live.json",
+   "bytes": 1170,
+   "sha256": "71dc6ccce74cab2318934f59e8b2c8f12e3f8f58e543a38416e2e110e112be4b"
+  },
+  {
+   "path": "samples/echotik-enterprise-pricing-live.json",
+   "bytes": 1130,
+   "sha256": "a658af09c3f306d0e35a8f0e102daefd5cf0ecc97a6527627ae9d5880d4d5699"
+  },
+  {
+   "path": "samples/echotik-mx-menswear-monthly.json",
+   "bytes": 14043,
+   "sha256": "f561130f8e32d2f1155e96d7d1cbbf0c5d3d49808e96d31d09729a42f1a12c2b"
+  },
+  {
+   "path": "samples/echotik-mx-menswear-weekly.json",
+   "bytes": 13679,
+   "sha256": "d0becc31980e1b3533269cacc3533329b5e0b7073ff0cc5771bff35109009d22"
+  },
+  {
+   "path": "samples/echotik-mx-tshirts-monthly.json",
+   "bytes": 13345,
+   "sha256": "2a7868ecf30c458be053d59674a90aec3007b87a38135223288521e66c96dd70"
+  },
+  {
+   "path": "samples/echotik-mx-tshirts-previous-week.json",
+   "bytes": 13467,
+   "sha256": "d1ea2cde1fe0488870ac9ed7fc5eb3c00e839436511a6cbc10106d871a00db82"
+  },
+  {
+   "path": "samples/echotik-mx-tshirts-weekly.json",
+   "bytes": 13346,
+   "sha256": "aefb6513bbe44a90095e0e2f3d4dc36e01c8e3dc266c81cf76b520d079bfcd98"
+  },
+  {
+   "path": "samples/echotik-pro-pricing-live.json",
+   "bytes": 1379,
+   "sha256": "bb7575a1796599cdb555084a84f684645d9f47dea0240dcd20819ad1c401ce61"
+  },
+  {
+   "path": "samples/echotik-tshirt-taxonomy.json",
+   "bytes": 1042,
+   "sha256": "c04e210e49a5b253167ca354605ca8575e7c9dc9e0d2de5ac8244a59015e2b70"
+  },
+  {
+   "path": "sdk/README.md",
+   "bytes": 12795,
+   "sha256": "c59ec1e7faa435447b03f11bfe8cda95f8808a19c82c82e181eda2aedd336f00"
+  },
+  {
+   "path": "sdk/cli.mjs",
+   "bytes": 6468,
+   "sha256": "4366a60679828e6fff99df90a25236ebbc19753bc54cd67906677aa42371f99a"
+  },
+  {
+   "path": "sdk/index.mjs",
+   "bytes": 9061,
+   "sha256": "5736c2127cf6bb4c2b174ab9803021624401179f160e8166e98fb7ffadebca57"
+  },
+  {
+   "path": "sdk/package.json",
+   "bytes": 400,
+   "sha256": "f0ad39cb30f2af6478a1324def89dc4fd8d9a3957dc9a2e168bfc2348673f539"
+  },
+  {
+   "path": "sdk/test/daily.test.mjs",
+   "bytes": 3274,
+   "sha256": "c9d56353a7ea5a87a052f74b2d6658603abbe1642cbd38ff33fd7dda54e1c1c4"
+  },
+  {
+   "path": "sdk/test/offline.test.mjs",
+   "bytes": 13441,
+   "sha256": "44f7136b272b6d639e9006a666ae76a178dcb37fb3eeb0e5931bc568ee59dd67"
+  },
+  {
+   "path": "sdk/test/session.test.mjs",
+   "bytes": 3557,
+   "sha256": "555d7d623f408c97f3483631049d524f85c710f1ee79fd6367d876b99fb9b627"
+  },
+  {
+   "path": "sdk/lib/bridge.mjs",
+   "bytes": 12233,
+   "sha256": "48a2469882f88a16d0becdf7b5d62118cb52ad2b6cac53bfa5e0f4a594790b6c"
+  },
+  {
+   "path": "sdk/lib/cdp.mjs",
+   "bytes": 8006,
+   "sha256": "a32a8bec51fbb2d043e1c66b805a2ae6c41dc72394f9314d239a302d25e4a8c8"
+  },
+  {
+   "path": "sdk/lib/constants.mjs",
+   "bytes": 1508,
+   "sha256": "8eeaa1e8a519209930618f6c9d3c939563e07b29f8886dfcfd99edbccd15e24d"
+  },
+  {
+   "path": "sdk/lib/errors.mjs",
+   "bytes": 317,
+   "sha256": "d0be68930e964fb4d1c9b8ef7c8e627e86ed3b9a6c47f55478c697d578c24411"
+  },
+  {
+   "path": "sdk/lib/governor.mjs",
+   "bytes": 1244,
+   "sha256": "50d9a4108519a0c9a3422fa523f117b26e48836bd6f87981d5e13d1a3e200962"
+  },
+  {
+   "path": "sdk/lib/json.mjs",
+   "bytes": 359,
+   "sha256": "efd0fd896b95a88bfc6460bafb3cb9b62e08eabfc25dfedf3db62f701f270267"
+  },
+  {
+   "path": "sdk/lib/redaction.mjs",
+   "bytes": 5474,
+   "sha256": "a23aff2730af457d66892f3ec7be1ecdebd0b47b7e7377339a3ba781000d789d"
+  },
+  {
+   "path": "sdk/lib/validation.mjs",
+   "bytes": 4758,
+   "sha256": "d77121c9b380018dad067b735cd40e7c8ddb9554c6a7a1c687e45e2929e766e4"
+  }
+ ]
+}

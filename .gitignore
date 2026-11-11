@@ -1,0 +1,40 @@
+# 依赖
+node_modules/
+.pnpm-store/
+__pycache__/
+*.pyc
+.venv/
+
+# 本机状态与缓存
+.DS_Store
+.wrangler/
+.playwright-mcp/
+.zcode/
+.cache/
+*.log
+
+# 凭据
+.env
+.env.*
+*.pem
+*.key
+config.local.*
+*.local.json
+
+# 运行数据与账本
+run-state.json
+*.sqlite
+*.sqlite3
+*.db
+data/
+ledger/
+
+# 生成媒体与业务资产
+generated-images/
+generated-videos/
+*.psd
+*.tif
+*.tiff
+*.zip
+*.rar
+*.7z
