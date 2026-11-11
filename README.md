@@ -68,7 +68,7 @@ POD_REPO=/path/to/pod-repo node pod-plugins/pod-image-listing/scripts/listing-st
 - 登录态、Cookie、API 密钥、本地配置与运行日志；
 - TikTok / EchoTik / 银河等平台的官方模板与受版权保护的素材。
 
-仓库中的代码示例使用占位数据；文档里的店铺、品牌、供应商、账号与商品标识已替换为占位符，历史数量与价格仅作业务背景。真实运行需要自备账号、密钥与平台模板。
+仓库中的代码示例使用占位数据；文档里的店铺、品牌、供应商、账号与商品标识已替换为占位符，历史数量与价格仅作业务背景。插件默认使用作者自有的公开基础设施域名（`img.bri-king.com`、`image2.bri-king.com`、`pod-images-atr.pages.dev`），这些是真实可访问的默认值、不是占位符，可按需替换。真实运行需要自备账号、密钥与平台模板。
 
 ## 许可证
 

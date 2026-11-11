@@ -4,8 +4,7 @@
 这份手册只写**能照着敲**的命令，以及每一步的通过标准。
 
 > 重要：这个仓库是「工具 + 文档」，不是完整业务仓库。
-> 真实上架还缺：官方批量表模板、`tools/pod/chrome-page.mjs`、
-> `tools/pod/galaxy-run-batch.mjs`、`project/T恤` 底图/面料/尺码表资料。
+> 真实上架还缺：官方批量表模板、`project/T恤` 底图/面料/尺码表资料。
 > 公开仓库未包含示例 spec、packs 与官方模板；第 2–4 步请用自备素材替换 `/path/to/...`。
 > 下面第 0–4 步的本地工具可跑；第 5 步起需要店铺和浏览器。
 
@@ -127,8 +126,8 @@ ps -Ao pid,comm | grep zhanfu | grep -v Helper
 
 - 银河地址：https://tshirt.riin.com
 - 需要本机 Chrome 开 CDP 9222，并登录银河。
-- 当前缺 `tools/pod/chrome-page.mjs`；补上后
-  `galaxy-step.mjs status` 才能连通。
+- `tools/pod/chrome-page.mjs` 与 `galaxy-run-batch.mjs` 已在仓库；
+  `galaxy-step.mjs status` 走通的前置条件是本机 Chrome 已登录银河。
 
 ### 5.4 图床
 
