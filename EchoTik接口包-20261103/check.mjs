@@ -13,7 +13,7 @@
  *
  * 退出码：0 全通过；1 有失败项。
  */
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseMetric } from "./client.mjs";
@@ -69,6 +69,11 @@ function checkCategories(file, doc) {
   if (missing.length) fail(file, `类目链缺 ${missing.join(",")}`);
   const leaf = cats.find((c) => String(c.id) === "601226");
   if (leaf && (leaf.parents || []).length < 2) fail(file, "叶子类目 parents 不足两级（会导致只传叶 ID 时零结果）");
+}
+
+if (!existsSync(SAMPLES)) {
+  console.log("SKIP 本仓库未包含 samples/；请放入自己的响应 JSON 后重跑离线自检。");
+  process.exit(0);
 }
 
 const files = readdirSync(SAMPLES).filter((f) => f.endsWith(".json")).sort();

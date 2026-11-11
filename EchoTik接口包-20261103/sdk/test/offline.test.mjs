@@ -112,7 +112,7 @@ test("商品响应只保留业务字段，meta 只保留分页六字段", () => 
     code: 0,
     data: [
       {
-        product_id: "1737423637648869219",
+        product_id: "2000000000000000000",
         product_name: "SanJudas T-shirt sales@example.com",
         category: "Men's Clothing",
         categories: [{ id: 601226, name: "T-shirts", path: "/internal/private" }],
@@ -131,7 +131,7 @@ test("商品响应只保留业务字段，meta 只保留分页六字段", () => 
         review_count: 77,
         cover_url: "https://user:pass@cdn.example.com/p.jpg?size=large",
         seller: {
-          seller_id: "1730000000000000123",
+          seller_id: "2000000000000000000",
           seller_name: "Demo Seller",
           email: "owner@example.com",
           phone: "+86 13800000000",
@@ -193,7 +193,7 @@ test("商品响应只保留业务字段，meta 只保留分页六字段", () => 
   assert.doesNotMatch(serialized, /sales@example\.com|owner@example\.com/i);
   assert.doesNotMatch(serialized, /10\.3\.0\.34|must-not-leak|\+86/);
   assert.doesNotMatch(serialized, /"skus"/);
-  assert.equal(document.data[0].product_id, "1737423637648869219");
+  assert.equal(document.data[0].product_id, "2000000000000000000");
   assert.equal(document.data[0].seller.email, undefined);
   assert.equal(document.data[0].seller.phone, undefined);
   assert.equal(document.data[0].seller.contact_url, undefined);
@@ -265,9 +265,9 @@ test("三级 taxonomy 数组与对象交替嵌套仍保留叶子 T 恤", () => {
 
 test("解析 EchoTik JSON 时保留 19 位商品 ID", () => {
   const parsed = parseEchoTikJsonText(
-    '{"code":0,"data":[{"product_id":1737423637648869219,"sale_cnt":3645}]}',
+    '{"code":0,"data":[{"product_id":2000000000000000000,"sale_cnt":3645}]}',
   );
-  assert.equal(parsed.data[0].product_id, "1737423637648869219");
+  assert.equal(parsed.data[0].product_id, "2000000000000000000");
   assert.equal(parsed.data[0].sale_cnt, 3645);
 });
 
@@ -361,7 +361,7 @@ test("页面桥同源复用凭据但 state/read/snapshot 均不暴露 headers", 
       ok: true,
       status: 200,
       async text() {
-        return '{"code":0,"data":[{"product_id":1737423637648869219,"sale_cnt":3645}],"meta":{"current_page":1}}';
+        return '{"code":0,"data":[{"product_id":2000000000000000000,"sale_cnt":3645}],"meta":{"current_page":1}}';
       },
     };
   };
@@ -420,7 +420,7 @@ test("页面桥同源复用凭据但 state/read/snapshot 均不暴露 headers", 
     ],
   });
   assert.equal(first.ok, true);
-  assert.equal(first.body.data[0].product_id, "1737423637648869219");
+  assert.equal(first.body.data[0].product_id, "2000000000000000000");
   assert.doesNotMatch(JSON.stringify(first), /SENTINEL-SECRET|123456/);
 
   const replay = requests.at(-1);

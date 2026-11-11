@@ -166,7 +166,7 @@ manifest：`{"steps":"mapping","products":[{"pack":"...","code":"UKIYOE1","title
 
 ## 10. 工厂端映射（RIIN）
 
-RIIN 店铺：xjcx4623，shopPk `2112903609325871106`，platform shopId `2113099681371144193`，factoryId `15235`。
+RIIN 店铺：shop-a，shopPk `2000000000000000001`，platform shopId `2000000000000000002`，factoryId `10001`。
 
 ### 10.1 只读检查 / 同步（riin-map.mjs）
 
@@ -185,7 +185,7 @@ node tools/pod/riin-map.mjs --pack <商品包> --code UKIYOE1 [--sync] [--wait-s
 
 ```bash
 node tools/pod/riin-design-batch.mjs <manifest.json>
-# manifest: [{"code":"UKIYOE4C","productId":"1738357511534839664","pattern":"<生产图.png>"}]
+# manifest: [{"code":"UKIYOE4C","productId":"2000000000000000000","pattern":"<生产图.png>"}]
 ```
 
 逐款走商品行「设计」：选款号 MXTMC001 → 解析编码 → 设计器粘贴生产图 → 保存商品 → 读回映射。
@@ -202,7 +202,7 @@ node tools/pod/riin-design-batch.mjs <manifest.json>
 
 规格属性真值是 `Blanco-S`；SKU 编码是 `MXTMC001-UKIYOE4C-BLANCO-S`。用 SKU 编码取第 1 段会拿到款号，
 颜色/尺码永远映射不出来。款号用模糊匹配，颜色/尺码按 `-` 分隔取第 1/2 段，映射表 `BLANCO → White`。
-平台 TIKTOK（`shopTypes: "11"`），店铺 xjcx4623（`applyAllShop: false`）。
+平台 TIKTOK（`shopTypes: "11"`），店铺 shop-a（`applyAllShop: false`）。
 
 图片匹配规则当前为空，`imageCode` 由设计保存生成，不靠解码。
 已设计过的 SPU 会弹「重新设计将覆盖已有结果」，脚本已处理该确认框。
@@ -212,12 +212,12 @@ node tools/pod/riin-design-batch.mjs <manifest.json>
 映射真正落库的接口是 `POST /trade/design/sku/factor/bind`：
 
 ```json
-{"designTaskId":"2117826705476288512","factoryId":"15235","shopId":"2113099681371144193",
- "spuId":"1738357511534839664",
- "binds":[{"skuId":"1738357585520985968","styleCode":"MXTMC001","colorCode":"White","sizeCode":"S"}]}
+{"designTaskId":"2000000000000000003","factoryId":"10001","shopId":"2000000000000000002",
+ "spuId":"2000000000000000000",
+ "binds":[{"skuId":"2000000000000000000","styleCode":"MXTMC001","colorCode":"White","sizeCode":"S"}]}
 ```
 
-- `shopId` 是平台店铺 ID `2113099681371144193`，不是 shopPk。
+- `shopId` 是平台店铺 ID `2000000000000000002`，不是 shopPk。
 - `skuId` 是店铺 SKU 数字 ID，不是 `skuCode`。
 - `designTaskId` 每次点「设计」都会新建。单独调 `bind` 会让商品指向空设计任务，
   所以**不能**脱离设计流程批量写；`riin-map.mjs --apply` 继续拒绝。
@@ -229,7 +229,7 @@ node tools/pod/riin-audit.mjs [--detail --max-detail 50] [--out audit.json]
 ```
 
 分页必须用 `searchAfter` 游标（`pageIndex` 和 `nextSearchAfter` 都不生效）。
-2026-11-04 实测 640 条商品，`designStatus=3` 只有 5 条（全部为本批次），其余 635 条未设计。
+2026-11-04 实测 600+ 条商品，`designStatus=3` 只有 5 条（全部为本批次），其余数百条未设计。
 
 ## 边界与收尾
 

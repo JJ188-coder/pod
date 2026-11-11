@@ -59,7 +59,7 @@ function fixture(t) {
   writeJson(specFile, spec); writeJson(costsFile, costs);
   const options = { workspace, roots, mediaOptions: { inspectVideo: () => structuredClone(METADATA) } };
   return { workspace, options, roots, spec, specFile, costs, costsFile, source,
-    input: { spec: specFile, shop: 'tk-xjcx4623', costs: costsFile } };
+    input: { spec: specFile, shop: 'tk-shop-a', costs: costsFile } };
 }
 
 const decision = (result) => result.hookSpecificOutput?.permissionDecision;
@@ -268,7 +268,7 @@ test('恢复态即使本地检查通过且报告自填new也只能读回，不�
   const reportFile = path.join(f.workspace, 'report.json');
   const bound = event(`POD_GUARD_REPORT=${reportFile} node /tmp/listing-step.mjs publish --spec ${f.specFile} --apply`);
   for (const [stage, product_ids] of [['upload_history', []], ['submitted_unknown', []], ['new', ['123456789']]]) {
-    writeJson(evidence, { shop: 'tk-xjcx4623', products: ['STYLE-A'], stage, product_ids,
+    writeJson(evidence, { shop: 'tk-shop-a', products: ['STYLE-A'], stage, product_ids,
       files: [{ file: f.specFile, sha256: sha256(f.specFile) }] });
     const report = await check({ ...f.input, evidence }, f.options);
     assert.equal(report.mechanical_pass, true);
@@ -283,10 +283,10 @@ test('已有xlsx只绑原表和模板，不生成spec；未知提交/已有ID下
   const template = path.join(f.workspace, 'template.xlsx');
   fs.writeFileSync(xlsx, 'existing workbook fixture, not parsed'); fs.writeFileSync(template, 'template fixture');
   const evidence = path.join(f.workspace, 'evidence.json');
-  const facts = { shop: 'tk-xjcx4623', products: ['STYLE-A'], stage: 'upload_history', product_ids: [],
+  const facts = { shop: 'tk-shop-a', products: ['STYLE-A'], stage: 'upload_history', product_ids: [],
     files: [{ file: xlsx, sha256: sha256(xlsx) }] };
   writeJson(evidence, facts);
-  const input = { xlsx, template, evidence, shop: 'tk-xjcx4623' };
+  const input = { xlsx, template, evidence, shop: 'tk-shop-a' };
   const before = fs.readdirSync(f.workspace).sort();
   const report = await check(input, f.options);
   assert.equal(report.status, 'evidence_only'); assert.equal(report.mechanical_pass, false);
@@ -294,7 +294,7 @@ test('已有xlsx只绑原表和模板，不生成spec；未知提交/已有ID下
   assert.deepEqual(fs.readdirSync(f.workspace).sort(), before);
   facts.stage = 'submitted_unknown'; writeJson(evidence, facts);
   assert.equal((await check(input, f.options)).next_action, 'readback_only');
-  facts.stage = 'new'; facts.product_ids = ['1738357511534839664']; writeJson(evidence, facts);
+  facts.stage = 'new'; facts.product_ids = ['2000000000000000000']; writeJson(evidence, facts);
   assert.equal((await check(input, f.options)).next_action, 'readback_only');
   facts.files[0].sha256 = '0'.repeat(64); writeJson(evidence, facts);
   await assert.rejects(check(input, f.options), /EVIDENCE_STALE/);

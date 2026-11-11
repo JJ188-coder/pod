@@ -33,7 +33,7 @@ async function openGoodsAndDesign(productId) {
   await wait(500);
   await page.locator('.el-cascader-node').filter({ hasText: /^TIKTOK$/ }).first().click();
   await wait(400);
-  await page.locator('.el-cascader-node').filter({ hasText: /xjcx4623/ }).first().click();
+  await page.locator('.el-cascader-node').filter({ hasText: /shop-a/ }).first().click();
   await wait(400);
   await page.getByRole('button', { name: '搜索', exact: true }).first().click();
   await wait(5000);
@@ -116,7 +116,7 @@ for (const item of items) {
     const rows = await page.evaluate(async ({ productId }) => {
       const ui = JSON.parse(localStorage.getItem('userInfo') || 'null');
       const H = { 'Content-Type': 'application/json', Authorization: String(ui.token), 'X-Time-Zone': 'UTC+8', 'X-Requested-With': 'XMLHttpRequest' };
-      const r = await fetch('/trade/goods/detail/spuId/factoryId/v2', { method: 'POST', headers: H, body: JSON.stringify({ spuId: productId, factoryId: '15235' }) });
+      const r = await fetch('/trade/goods/detail/spuId/factoryId/v2', { method: 'POST', headers: H, body: JSON.stringify({ spuId: productId, factoryId: '10001' }) });
       const j = await r.json();
       return (j.data || []).map((s) => ({ skuCode: s.skuCode, styleCode: s.styleCode, colorCode: s.colorCode, sizeCode: s.sizeCode, imageCode: s.imageCode, productCode: s.productCode, mappingState: s.mappingState, mappingCode: s.mappingCode }));
     }, { productId: item.productId });

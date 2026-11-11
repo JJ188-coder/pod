@@ -3,7 +3,7 @@
  * riin-audit.mjs — RIIN 商品侧只读审计：分页拉商品，统计设计状态；可选逐款读 SKU 映射。
  *
  * 用法：
- *   node tools/pod/riin-audit.mjs [--shop-pk 2112903609325871106] [--factory-id 15235]
+ *   node tools/pod/riin-audit.mjs [--shop-pk 2000000000000000001] [--factory-id 10001]
  *     [--max-pages 20] [--detail --max-detail 50] [--out audit.json]
  *
  * 只读：只调 /trade/goods/page/v2 与 /trade/goods/detail/spuId/factoryId/v2。
@@ -17,8 +17,8 @@ const arg = (n, d = '') => {
   const i = process.argv.indexOf(n);
   return i > -1 && process.argv[i + 1] ? process.argv[i + 1] : d;
 };
-const shopPk = arg('--shop-pk', '2112903609325871106');
-const factoryId = arg('--factory-id', '15235');
+const shopPk = arg('--shop-pk', '2000000000000000001');
+const factoryId = arg('--factory-id', '10001');
 const maxPages = Number(arg('--max-pages', '20'));
 const withDetail = process.argv.includes('--detail');
 const maxDetail = Number(arg('--max-detail', '50'));

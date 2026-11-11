@@ -7,7 +7,7 @@
  *
  * 用法：
  *   node tools/pod/listing/insert-detail-images.mjs \
- *     --pid 59366 --tab 3 --product 1738323889769383792 \
+ *     --pid 59366 --tab 3 --product 2000000000000000000 \
  *     --dir /abs/详情页5 [--apply]
  *
  * 默认只读：打印将要插入的文件与页面当前状态，不改页面。

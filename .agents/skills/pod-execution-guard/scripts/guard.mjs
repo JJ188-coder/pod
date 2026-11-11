@@ -6,7 +6,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 export const WORKSPACE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../../..');
-const SHOP = 'tk-xjcx4623';
+const SHOP = 'tk-shop-a';
 const SCHEMA = 'pod-guard-check-v1';
 const NAMES = {
   'pod-pipeline': 'pod-pipeline',
@@ -105,7 +105,7 @@ export function verifyReport(report, current) {
 export async function check(input, options = {}) {
   const opts = { workspace: WORKSPACE, ...options };
   opts.roots ??= installedRoots();
-  assert(input.shop === SHOP, 'SHOP_NOT_SUPPORTED: 原上架技能仅支持tk-xjcx4623，手机壳店铺不可混用');
+  assert(input.shop === SHOP, 'SHOP_NOT_SUPPORTED: 原上架技能仅支持tk-shop-a，手机壳店铺不可混用');
   assert(Boolean(input.spec) !== Boolean(input.xlsx), 'SELECT_SPEC_OR_EXISTING_XLSX');
   const report = {
     schema: SCHEMA, checked_at: new Date().toISOString(), route: input.spec ? 'spec' : 'existing_xlsx',
@@ -335,7 +335,7 @@ export async function hook(event, options = {}) {
     const specAt = rule.args.indexOf('--spec');
     if (specAt < 0 || rule.args[0] === 'off' || rule.args.includes('--confirm-deactivate')) continue;
     const reportPath = /(?:^|\s)POD_GUARD_REPORT=(?:"([^"]+)"|'([^']+)'|([^\s;&|]+))/.exec(action.command);
-    if (!reportPath) return hookOutput(kind, 'POD护栏：先运行guard check --spec ... --shop tk-xjcx4623 --costs ...，将JSON留作报告；用POD_GUARD_REPORT=绝对路径绑定本次命令。check也可能公开图床并上传。已有xlsx/历史不要重建。', 'deny');
+    if (!reportPath) return hookOutput(kind, 'POD护栏：先运行guard check --spec ... --shop tk-shop-a --costs ...，将JSON留作报告；用POD_GUARD_REPORT=绝对路径绑定本次命令。check也可能公开图床并上传。已有xlsx/历史不要重建。', 'deny');
     try {
       const report = readJson(realFile(reportPath[1] || reportPath[2] || reportPath[3]));
       assert(report.scope?.workspace === fs.realpathSync(opts.workspace) && report.scope.shop === SHOP, 'REPORT_SCOPE_MISMATCH');
@@ -374,7 +374,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     } else {
       const input = parseArgs(process.argv.slice(3));
       const result = command === 'check' ? await check(input) : command === 'verify' ? verifyReport(readJson(realFile(input.report))) : null;
-      assert(result, 'USAGE: guard.mjs check --spec FILE --shop tk-xjcx4623 --costs FILE | check --xlsx FILE --template FILE --evidence FILE --shop tk-xjcx4623 | verify --report FILE | hook');
+      assert(result, 'USAGE: guard.mjs check --spec FILE --shop tk-shop-a --costs FILE | check --xlsx FILE --template FILE --evidence FILE --shop tk-shop-a | verify --report FILE | hook');
       console.log(JSON.stringify(result, null, 2));
       if (result.status === 'blocked') process.exitCode = 1;
     }

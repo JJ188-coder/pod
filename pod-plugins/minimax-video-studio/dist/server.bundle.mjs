@@ -11678,12 +11678,12 @@ var NUMBER_FORMAT_RANGES = {
   safeint: [Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER],
   int32: [-2147483648, 2147483647],
   uint32: [0, 4294967295],
-  float32: [-34028234663852886e22, 34028234663852886e22],
+  float32: [-2000000000000000000e22, 2000000000000000000e22],
   float64: [-Number.MAX_VALUE, Number.MAX_VALUE]
 };
 var BIGINT_FORMAT_RANGES = {
-  int64: [/* @__PURE__ */ BigInt("-9223372036854775808"), /* @__PURE__ */ BigInt("9223372036854775807")],
-  uint64: [/* @__PURE__ */ BigInt(0), /* @__PURE__ */ BigInt("18446744073709551615")]
+  int64: [/* @__PURE__ */ BigInt("-2000000000000000000"), /* @__PURE__ */ BigInt("2000000000000000000")],
+  uint64: [/* @__PURE__ */ BigInt(0), /* @__PURE__ */ BigInt("2000000000000000000")]
 };
 function pick(schema, mask) {
   const newShape = {};

@@ -91,13 +91,13 @@ node cli.mjs apply --batch <批次目录> --apply  # 写回 listing-spec.json �
 |---|---|
 | 仓库 | `/Users/jiyuanyi/Documents/pod/pod-repo` |
 | 官方模板 | `project/T恤/批次/B20261026-NODE-WORKFLOW-01/官方模板/Tiktoksellercenter_男装与男士内衣_20261027_男士T恤_template.xlsx` |
-| 模板版本 / SHA-256 | V5.0.2 / `92717267b201dd1d9c53a80580ff116b552b1486d732145af581237113422fd5` |
+| 模板版本 / SHA-256 | V5.0.2 / `<模板指纹未公开>` |
 | 图床基址 | `https://pod-images-atr.pages.dev`（Cloudflare Pages 项目 `pod-images`） |
-| 店铺 | tk-xjcx4623 / MONTISE；在售 640（2026-11-04 实测），未发现 300 款总量上限 |
+| 店铺 | tk-shop-a / BRAND-A；在售 600+（2026-11-04 实测），未发现 300 款总量上限 |
 | 工厂款号 | `MXTMC001`（180G T恤成人款-墨西哥） |
-| RIIN shopPk | `2112903609325871106` |
-| RIIN platform shopId | `2113099681371144193` |
-| RIIN factoryId | `15235`（tenant 21067 / Brk） |
+| RIIN shopPk | `2000000000000000001` |
+| RIIN platform shopId | `2000000000000000002` |
+| RIIN factoryId | `10001`（tenant 10002 / Brk） |
 | 生图模型 | Grsai `nano-banana-2.1`，`imageSize: 4K`，约 1 分钟/张 |
 | 商品参数 | Blanco × S/M/L/XL/2XL/3XL，123 MXN，库存 30 |
 
@@ -118,7 +118,7 @@ node cli.mjs apply --batch <批次目录> --apply  # 写回 listing-spec.json �
 
 ```json
 {"id":"186","name":"MXTMC001-Blanco","shopTypes":"11","priority":1,"status":true,
- "productType":0,"applyAllShop":false,"creator":"Brk","createTime":"2026-11-04 10:07:20"}
+ "productType":0,"applyAllShop":false,"creator":"creator-a","createTime":"2026-11-04 10:07:20"}
 ```
 
 ```json
@@ -135,7 +135,7 @@ node cli.mjs apply --batch <批次目录> --apply  # 写回 listing-spec.json �
    规格属性的真值是 `Blanco-S`，SKU 编码是 `MXTMC001-UKIYOE4C-BLANCO-S` —— 用编码取第 1 段会得到款号，整条规则就废了。
 2. 款号用**模糊匹配**（`type:1`），因为规格属性里根本没有款号。
 3. 颜色/尺码用**按分隔符**（`type:3`），`-` 分隔，颜色取第 1 段，尺码取第 2 段；映射表 `BLANCO → White`，尺码同名。
-4. 适用平台 TIKTOK（`shopTypes: "11"`），店铺 xjcx4623（`applyAllShop: false`）。
+4. 适用平台 TIKTOK（`shopTypes: "11"`），店铺 shop-a（`applyAllShop: false`）。
 5. 图片匹配规则当前为空（`暂无规则`）；`imageCode` 由设计保存时生成，不靠解码。
 
 ### 5.1 工厂映射写入接口（实测原文，2026-11-04 抓包）
@@ -144,13 +144,13 @@ node cli.mjs apply --batch <批次目录> --apply  # 写回 listing-spec.json �
 
 ```json
 {
-  "designTaskId": "2117826705476288512",
-  "factoryId": "15235",
-  "shopId": "2113099681371144193",
-  "spuId": "1738357511534839664",
+  "designTaskId": "2000000000000000003",
+  "factoryId": "10001",
+  "shopId": "2000000000000000002",
+  "spuId": "2000000000000000000",
   "binds": [
-    {"skuId": "1738357585520985968", "styleCode": "MXTMC001", "colorCode": "White", "sizeCode": "S"},
-    {"skuId": "1738357585521051504", "styleCode": "MXTMC001", "colorCode": "White", "sizeCode": "M"}
+    {"skuId": "2000000000000000000", "styleCode": "MXTMC001", "colorCode": "White", "sizeCode": "S"},
+    {"skuId": "2000000000000000000", "styleCode": "MXTMC001", "colorCode": "White", "sizeCode": "M"}
   ]
 }
 ```
@@ -162,14 +162,14 @@ UI 里实际调用顺序：`goods/page/v2` → `design/product/page` → `goods/
 
 三个字段坑：
 
-- `shopId` 是**平台店铺 ID** `2113099681371144193`，不是 shopPk `2112903609325871106`。
+- `shopId` 是**平台店铺 ID** `2000000000000000002`，不是 shopPk `2000000000000000001`。
 - `skuId` 是店铺 SKU 的**数字 ID**（详情接口的 `skuId`），不是 `skuCode`。
-- 每次点「设计」都会新建 `designTaskId`（两次实测 `2117826507182178304` → `2117826705476288512`）。
+- 每次点「设计」都会新建 `designTaskId`（两次实测 `2000000000000000000` → `2000000000000000003`）。
   所以单独调 `bind` 会把商品指向一个**空设计任务**，必须与设计器保存配对使用。
   这也是「不能脱离设计流程批量写映射」的根本原因，不是字段没猜对。
 
 只读审计：`node tools/pod/riin-audit.mjs [--detail --max-detail 50] [--out x.json]`
-（分页用 `searchAfter` 游标，不是 `pageIndex`）。2026-11-04 实测：640 条商品，`designStatus=3` 仅 5 条（全部是我们的），其余 635 条未设计。
+（分页用 `searchAfter` 游标，不是 `pageIndex`）。2026-11-04 实测：600+ 条商品，`designStatus=3` 仅 5 条（全部是我们的），其余数百条未设计。
 
 ---
 
@@ -195,13 +195,13 @@ UI 里实际调用顺序：`goods/page/v2` → `design/product/page` → `goods/
 
 | 款号 | 商品 ID | 状态 | 银河 SKU | RIIN 映射 |
 |---|---|---|---|---|
-| CLOWN01 | 1738357204808664944 | 在售 | 48 / 100% | 6/6 |
-| UKIYOE1 | 1738357480568031088 | 在售 | 48 / 100% | 6/6 |
-| UKIYOE2 | 1738357473993197424 | 在售 | 48 / 100% | 6/6 |
-| UKIYOE3B | 1738357506153219952 | 在售 | 48 / 100% | 6/6 |
-| UKIYOE4C | 1738357511534839664 | 在售 | 48 / 100% | 6/6 |
+| CLOWN01 | 2000000000000000000 | 在售 | 48 / 100% | 6/6 |
+| UKIYOE1 | 2000000000000000000 | 在售 | 48 / 100% | 6/6 |
+| UKIYOE2 | 2000000000000000000 | 在售 | 48 / 100% | 6/6 |
+| UKIYOE3B | 2000000000000000000 | 在售 | 48 / 100% | 6/6 |
+| UKIYOE4C | 2000000000000000000 | 在售 | 48 / 100% | 6/6 |
 
-5 款全部通过审核，店铺在售 640、审核中 0。
+5 款全部通过审核，店铺在售 600+、审核中 0。
 
 ### 7.1 单文件多款（已验证到预检，未发布）
 
@@ -230,7 +230,7 @@ node tools/pod/listing/publish.mjs --spec <2款spec> --stage pagecheck --pid 135
 | 工厂映射直写 | 真实接口是 `POST /trade/design/sku/factor/bind`（完整请求体已抓到，见 §5.1），但必须带**新建的** `designTaskId`；单独调用会让商品指向空设计任务。**不能**脱离设计流程批量写，`riin-map.mjs --apply` 继续拒绝。 |
 | 图片匹配规则 | 规则为空，`imageCode` 依赖设计保存生成。 |
 | 空设计对象清理 | 插件无删除能力，0 SKU 对象只能弃用（已记入批次状态）。 |
-| 发品额度 | 早期「258/300」记录**不成立**：实测在售 640、审核中 0，无 300 款总量上限。批量规模只受单文件行数、审核与人工点发布限制。 |
+| 发品额度 | 早期数量记录**不成立**：实测在售 600+、审核中 0，无 300 款总量上限。批量规模只受单文件行数、审核与人工点发布限制。 |
 | 多色 | 只验证了 Blanco。换色需扩颜色映射表。 |
 | 自有域名 | 仍是 `pages.dev`。 |
 | 冻结 ≠ 授权 | 冻结只表示素材可进下一段，不代表工厂适印、供货或发布许可。 |
@@ -244,7 +244,7 @@ node tools/pod/listing/publish.mjs --spec <2款spec> --stage pagecheck --pid 135
 | `DESIGN_NOT_FOUND` | 银河读回 | 轮询 `upload-pattern --check` 最多 60s，**不要重传** |
 | `CANVAS_NOT_LANDED` | 银河保存前 | 图太短/未落板；重生成满版图，再保存 |
 | `EDITOR_MISSING` | RIIN 设计器 | 多半是「重新设计将覆盖」确认框挡住了；点确定再等 iframe |
-| `GOODS_ROW_NOT_FOUND` | RIIN 商品列表 | 先选 TIKTOK → xjcx4623 再搜索 |
+| `GOODS_ROW_NOT_FOUND` | RIIN 商品列表 | 先选 TIKTOK → shop-a 再搜索 |
 | `IMPORT_FAILED` | 真导入 | 看 `页面预检.xlsx` 的错误列，不要重复提交 |
 | `MAPPING_MISSING` | 映射步骤 | 先跑 `--finish` 生成 `mapping.json` |
 | `FACTORY_GOODS_NOT_SYNCED` | RIIN 同步 | 同步是异步的，等；或在商品管理手动勾选店铺提交 |

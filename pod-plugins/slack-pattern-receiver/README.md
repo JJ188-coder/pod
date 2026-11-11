@@ -23,7 +23,7 @@
 
 ```json
 {
-  "conversation_url": "https://app.slack.com/client/T0C69JV44UU/D0C69K7FPKN",
+  "conversation_url": "https://app.slack.com/client/T0000000000/D0000000000",
   "file_name": "JESUS198-F.png",
   "output_dir": "/absolute/existing/dir",
   "expected_sha256": "optional 64-hex",
@@ -53,10 +53,10 @@
 ```bash
 node tools/pod/slack-pattern-receiver.mjs targets
 node tools/pod/slack-pattern-receiver.mjs discover \
-  --conversation-url 'https://app.slack.com/client/T0C69JV44UU/D0C69K7FPKN' \
+  --conversation-url 'https://app.slack.com/client/T0000000000/D0000000000' \
   --file-name 'JESUS198-F.png'
 node tools/pod/slack-pattern-receiver.mjs capture \
-  --conversation-url 'https://app.slack.com/client/T0C69JV44UU/D0C69K7FPKN' \
+  --conversation-url 'https://app.slack.com/client/T0000000000/D0000000000' \
   --file-name 'JESUS198-F.png' \
   --output-dir "$PWD/project/T恤/批次/<batch>/证据/Slack接收"
 node tools/pod/slack-pattern-receiver.mjs verify --file /abs/path.png --min-long-edge 3840

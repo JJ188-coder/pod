@@ -13,7 +13,7 @@
  *   node listing-step.mjs check    --spec <spec.json> [--out <xlsx>]
  *   node listing-step.mjs publish  --spec <spec.json> --apply
  *   node listing-step.mjs status   --title "PRUEBA"
- *   node listing-step.mjs off      --product 1738319130216138608 --apply
+ *   node listing-step.mjs off      --product 2000000000000000000 --apply
  *
  * 退出码：0 通过；1 被闸门拦下或缺项；2 参数/环境错误。
  */

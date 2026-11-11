@@ -13,7 +13,7 @@ description: 仅在需要POD本地成本/素材预检、复核报告或排查执
 
 ```bash
 node <本技能目录>/scripts/guard.mjs check \
-  --spec /绝对路径/当前spec.json --shop tk-xjcx4623 \
+  --spec /绝对路径/当前spec.json --shop tk-shop-a \
   --costs /绝对路径/本款逐色成本.json
 ```
 
@@ -23,7 +23,7 @@ node <本技能目录>/scripts/guard.mjs check \
 {"products":[{"product":"当前skuPrefix","color":"Blanco","cost_cny":32,"source":"/绝对路径/本款报价依据.json"}]}
 ```
 
-复用原 `media-check.mjs` 和实际安装的定价 `quote`，显式使用当前 `pricing.json` 的费用、单件数量 1；同时显示增加 5% 佣金和九折售价情景。缺成本、亏损或素材不符仍阻止新 spec 写入。本地检查仅适用 `tk-xjcx4623` / MONTISE，不能用于证明手机壳店铺可发布。
+复用原 `media-check.mjs` 和实际安装的定价 `quote`，显式使用当前 `pricing.json` 的费用、单件数量 1；同时显示增加 5% 佣金和九折售价情景。缺成本、亏损或素材不符仍阻止新 spec 写入。本地检查仅适用 `tk-shop-a` / BRAND-A，不能用于证明手机壳店铺可发布。
 
 `listing-step check` **会公开托管图片并上传预检**，不是纯本地检查。它及实际发布的新 spec 命令需 `POD_GUARD_REPORT=/绝对路径/本地检查报告.json`，仍按原技能传真实 `POD_REPO/POD_IMAGE_BASE_URL`。`publish/off` 不带 `--apply` 只是预览，不要求报告或额外确认。
 
@@ -41,10 +41,10 @@ node <本技能目录>/scripts/guard.mjs verify --report /绝对路径/本地检
 ```bash
 node <本技能目录>/scripts/guard.mjs check \
   --xlsx /绝对路径/已有表.xlsx --template /绝对路径/本类官方模板.xlsx \
-  --evidence /绝对路径/当前依据.json --shop tk-xjcx4623
+  --evidence /绝对路径/当前依据.json --shop tk-shop-a
 ```
 
-`evidence` 结构为 `{"shop":"tk-xjcx4623","products":["当前skuPrefix"],"stage":"upload_history","product_ids":[],"files":[{"file":"/绝对路径/已有表.xlsx","sha256":"实际64位SHA256"}]}`；可同时引用原回执。`stage` 取 `new/upload_history/submitted_unknown/readback`，ID 只填真实读回值；spec 检查也可传此索引。有 ID/提交不明只读回，有历史走恢复。xlsx 分支只绑文件，**不解析表格、不证明页面合格**。
+`evidence` 结构为 `{"shop":"tk-shop-a","products":["当前skuPrefix"],"stage":"upload_history","product_ids":[],"files":[{"file":"/绝对路径/已有表.xlsx","sha256":"实际64位SHA256"}]}`；可同时引用原回执。`stage` 取 `new/upload_history/submitted_unknown/readback`，ID 只填真实读回值；spec 检查也可传此索引。有 ID/提交不明只读回，有历史走恢复。xlsx 分支只绑文件，**不解析表格、不证明页面合格**。
 
 ## 只保留必要保护
 

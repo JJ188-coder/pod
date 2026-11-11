@@ -15,7 +15,7 @@
 
 ## 但 pre_check 不能当图片证明
 
-实测（2026-11-01，MONTISE / tk-xjcx4623）：
+实测（2026-11-01，BRAND-A / tk-shop-a）：
 
 | 文件 | /excel/analysis | /excel/pre_check | 页面在线编辑器 |
 |---|---|---|---|
@@ -31,7 +31,7 @@
 ## 实测：外链确实能上架（2026-11-01）
 
 用一个 `PRUEBA TECNICA NO COMPRAR` 测试品跑通：5 张外部 1200×1200 JPEG →
-analysis 1 款 1 SKU、pre_check 0 → 页面「1 件商品导入成功」→ 商品 ID `1738318721151633264`，
+analysis 1 款 1 SKU、pre_check 0 → 页面「1 件商品导入成功」→ 商品 ID `2000000000000000000`，
 编辑页 6 个图片地址全部是 `p16-oec-sg.ibyteimg.com`（**平台自己抓取并转存了外部图**）→
 下架回读「已下架」，在售 83→82 回到基线。
 

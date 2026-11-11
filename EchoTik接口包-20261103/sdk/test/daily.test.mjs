@@ -9,7 +9,7 @@ async function fixture(script = source.BRIDGE_SOURCE) {
   let clock = 0;
   let requests = 0;
   class Clock extends Date { static now() { return clock; } }
-  const nativeFetch = async () => { requests++; return {ok:true,status:200,text:async()=>'{"code":0,"data":[{"product_id":1737423637648869219}],"meta":{}}'}; };
+  const nativeFetch = async () => { requests++; return {ok:true,status:200,text:async()=>'{"code":0,"data":[{"product_id":2000000000000000000}],"meta":{}}'}; };
   const context = vm.createContext({Date:Clock,Headers,URL,URLSearchParams,fetch:nativeFetch,location:{origin:'https://echotik.live',href:'https://echotik.live/products/leaderboard/top-sold'},setTimeout});
   vm.runInContext(script,context);
   await context.fetch('https://echotik.live/api/v1/data/products/product-category',{headers:{authorization:'LOCAL_TEST_SENTINEL','x-user-id':'LOCAL_TEST_USER'}});
@@ -25,7 +25,7 @@ test('single-day daily request reaches normal same-origin bridge; mismatched per
   }
   assert.equal(f.calls(),1);
   const r=await f.bridge.read(query('daily','20261023'));
-  assert.equal(r.ok,true);assert.equal(r.body.data[0].product_id,'1737423637648869219');assert.equal(f.calls(),2);
+  assert.equal(r.ok,true);assert.equal(r.body.data[0].product_id,'2000000000000000000');assert.equal(f.calls(),2);
   assert.doesNotMatch(JSON.stringify(r)+JSON.stringify(f.bridge.state()),/LOCAL_TEST_SENTINEL|LOCAL_TEST_USER/);
 });
 test('explicit six-board budget stops the seventh call and retains interval guard',async()=>{

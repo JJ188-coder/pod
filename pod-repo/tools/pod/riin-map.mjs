@@ -27,8 +27,8 @@ const arg = (n, d = '') => {
 };
 const pack = path.resolve(arg('--pack'));
 const code = arg('--code');
-const shopPk = arg('--shop-pk', '2112903609325871106');
-const factoryId = arg('--factory-id', '15235');
+const shopPk = arg('--shop-pk', '2000000000000000001');
+const factoryId = arg('--factory-id', '10001');
 const apply = process.argv.includes('--apply');
 const doSync = process.argv.includes('--sync');
 const waitSeconds = Number(arg('--wait-seconds', '180'));
@@ -92,7 +92,7 @@ if (!goods.total || !goods.hit?.length) {
     waited_seconds: doSync ? waitSeconds : 0,
     next: [
       '同步请求已成功时，RIIN 侧仍是异步导入，可能几分钟到 20 分钟；稍后重跑本命令',
-      '也可在 RIIN 商品管理点「同步商品」：TIKTOK → 勾选 xjcx4623 → SpuIds 填商品 ID → 确认',
+      '也可在 RIIN 商品管理点「同步商品」：TIKTOK → 勾选 shop-a → SpuIds 填商品 ID → 确认',
       '若长时间不出现，检查该店铺在 RIIN 的授权是否过期',
     ],
     note: '商品未进 RIIN 前无法建立工厂映射；本地 mapping.json 已生成，不代表工厂已收到。',

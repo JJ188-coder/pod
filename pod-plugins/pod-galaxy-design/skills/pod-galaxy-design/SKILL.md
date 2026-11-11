@@ -9,8 +9,8 @@ description: POD 银河设计岗位。接收已验收的单张图案，完成银
 
 ## 适用与边界
 
-- 适用：T 恤链 `tk-xjcx4623` / MONTISE，工厂 RIIN 墨西哥 1 厂，衣款 `MXTMC001`。
-- 与手机壳链（`tk-uump1694`）完全隔离，不共用 SKU、店铺权限或图案。
+- 适用：T 恤链 `tk-shop-a` / BRAND-A，工厂 RIIN 墨西哥 1 厂，衣款 `MXTMC001`。
+- 与手机壳链（`tk-shop-b`）完全隔离，不共用 SKU、店铺权限或图案。
 - 不付款、不充值、不建单、不推厂、不删除平台对象。
 - 不读取或导出 Cookie / Token / localStorage 值；不做站外会话 replay。
 - 银河会话过期时只提示本人登录，不代填账号密码。
