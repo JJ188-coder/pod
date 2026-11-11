@@ -17,6 +17,8 @@
 | `EchoTik接口包-20261103/` | EchoTik 只读 SDK、接口契约与离线测试 |
 | `.agents/skills/pod-execution-guard/` | 执行护栏：本地检查与发布边界 |
 
+> `POD全流程工具包-20261103/` 为节选：保留教学、标准、工具与安装文档；其中的插件副本、示例图片与真实上架回执未包含，插件请直接使用 `pod-plugins/`。
+
 ## 能做什么
 
 - **选品**：抓取 EchoTik 墨西哥男装榜单与商品全 SKU（只读、断点续跑、按日额度记账）。
@@ -71,6 +73,8 @@ POD_REPO=/path/to/pod-repo node pod-plugins/pod-image-listing/scripts/listing-st
 ## 许可证
 
 本项目自有代码与文档采用 [MIT License](LICENSE)。
+
+`pod-plugins/tiktok-tshirt/` 保留其原有 MIT 版权声明；引用第三方依赖时以各依赖自身许可证为准。
 
 MIT 仅覆盖本仓库中由本项目作者拥有权利的代码与文档，不覆盖任何第三方平台、供应商、商标、字体、图片、视频或模板。使用前请自行确认所在平台的服务条款与当地法规。
 
